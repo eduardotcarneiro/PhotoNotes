@@ -1,0 +1,24 @@
+<!--
+  This template loads for the 'ListExample' state (app.js)
+-->
+	<ion-header-bar
+  		title="PhotoNotes" 
+  		left-buttons="leftButtons" 
+  		right-buttons="rightButtons" 
+  		type="bar-balanced" 
+  		align-title="center">
+	</ion-header-bar>
+
+	<ion-content has-header="true">
+		<ion-list option-buttons="itemButtons" can-swipe="true">
+			<!--se não tiver nenhum item-->
+  			<ion-item ng-if="list.length == 0">
+				Aperte <i class="icon ion-ios7-plus-outline"></i> para adicionar uma nova foto.
+			</ion-item>
+            
+			<!-- mostrar os itens que tem -->
+			<ion-item ng-repeat="item in list" item="item" item-type="item item-icon-left" ng-click="showItem(item)" ng-tap="">
+	  					{{ item.title }}
+			</ion-item>
+		</ion-list>
+	</ion-content>

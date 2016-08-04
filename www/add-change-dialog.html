@@ -1,0 +1,35 @@
+  <div class="modal">
+  
+    <div class="bar bar-header bar-balanced">
+        <ion-button class="button icon-left ion-chevron-left button-clear" ng-click="leaveAddChangeDialog()">Cancelar</ion-button>
+  		<h1 class="title">PhotoNotes</h1>
+	</div>
+      <!-- mostrar imagem -->
+    <ion-content has-header="true">
+		<form name="form" ng-model="form">
+			<ion-list>
+			  <img ng-src="{{srcImage || 'img/PhotoNotes.png'}}" id="srcImage" width="300 " height="300" style="display: block; margin: 0 auto;"/>
+       <!-- tirar foto -->          
+       <button ng-show="action == 'add'" class="button button-full button-balanced " ng-click="takeImage() ">Tirar Foto</button>
+				  <!-- campos de preenchimento -->
+				  <li class="item item-input item-stacked-label">
+				  	<span class="input-label">Título</span>
+				    <input type="text" placeholder="" name="title" ng-model="title" required />					
+				  </li>
+				  <li class="item item-input item-stacked-label">
+				  	<span class="input-label">Descrição</span>
+				    <input type="text" placeholder="" name="description" ng-model="description" />					
+				  </li>
+				<!-- dependendo da ação, os botões aparecerão com funções diferentes. -->  
+				<ion-button ng-show="action == 'add'" ng-init="saveEmpty(form)" class="button button-block button-balanced" ng-click="addItem(form)">
+		  				Adicionar
+				</ion-button>
+				<ion-button ng-show="action == 'change'" class="button button-block button-balanced" ng-click="editItem(form)">
+		  				Editar
+				</ion-button>
+				
+			</ion-list>
+		</form>
+    </ion-content>
+    
+  </div>
